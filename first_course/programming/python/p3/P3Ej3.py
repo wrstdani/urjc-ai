@@ -3,11 +3,10 @@ from time import sleep
 num = int(input('Introduzca un número cualquiera mayor que 2:'))
 
 if num > 2:
-    for i in range(2, num):
+    lista = range(2, num)
+    for i in lista:
         if i % 2 == 0:
-            print(str(i))
-        else:
-            print('No hay números pares')
+            print(str(i)).pop(2)
             
 else:
     print('El número introducido es menor que 2, reiniciando programa...')
