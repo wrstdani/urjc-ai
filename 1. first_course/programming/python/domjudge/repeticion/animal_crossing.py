@@ -6,18 +6,16 @@ for a in range(c):
     lista_id.append(i)
     lista_punt.append(s)
 
-x = lista_punt.index(max(lista_punt))
-max_1 = (max(lista_punt))
+punt_max_1 = max(lista_punt)
+x = lista_punt.index(punt_max_1)
 
-lista_punt_2 = (lista_punt.remove(max_1))
-lista_id_2 = (lista_id.remove(lista_id[x]))
+lista_punt[x] = 0
 
-max_2 = (max(lista_punt_2))
-y = lista_punt_2.index(max_2)
+punt_max_2 = max(lista_punt) 
+y = lista_punt.index(punt_max_2)
 
-id_1 = (lista_id[x])
-id_2 = (lista_id_2[y])
+id_1 = lista_id[x]
+id_2 = lista_id[y]
+suma_punt_max = punt_max_1 + punt_max_2
 
-sum_max = (max_1 + max_2)
-
-print(int(id_1), int(id_2), int(sum_max))
+print(id_1, id_2, suma_punt_max)
