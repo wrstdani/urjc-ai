@@ -1,7 +1,7 @@
-def cifras(x):
-    num_cif = 1
-    while x // (10 ** num_cif) > 0:
-        num_cif += 1
-    return num_cif
+def cifras(x, y):
+    while x // (10 ** y) > 0:
+        return cifras(x, y + 1)
+    return y
 
-print(cifras(135))
+num_cifras = 1
+print(cifras(0, num_cifras))
