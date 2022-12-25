@@ -12,8 +12,9 @@ def traducir(x):
         '9' : 'nueve'
     }
 
-    for key, value in diccionario.items():
-        x = x.replace(key, value)
+    for i in x:
+        for key, value in diccionario.items():
+            x.replace(key, value)
 
     return x
 
