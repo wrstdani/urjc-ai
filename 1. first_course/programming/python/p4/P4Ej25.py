@@ -1,16 +1,11 @@
-n = str(input())
-
-def sumaCifrasR(n):
-    if len(n) == 1:
-        return int(n)
+def sumaCifrasRec(numero):
+    if numero < 10:
+        result = numero
     else:
-        return int(n[0]) + sumaCifrasR(n[1:])
+        unidad = numero % 10
+        result = unidad + sumaCifrasRec(numero // 10)
+    return result
 
-def sumaCifrasI(n):
-    suma = 0
-    for i in n:
-        suma += int(i)
-    return suma
+x = int(input())
 
-print(sumaCifrasR(n))
-print(sumaCifrasI(n))
+print(sumaCifrasRec(x))
