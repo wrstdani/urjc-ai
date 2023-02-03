@@ -7,6 +7,5 @@ def times(x):
         print(key, 'aparece', value, 'veces.')
 
 
-
 frase = input('Introduzca una frase: ')
 times(frase)
