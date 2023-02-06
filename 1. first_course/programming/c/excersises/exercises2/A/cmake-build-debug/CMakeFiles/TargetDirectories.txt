@@ -1,3 +1,0 @@
-C:/Users/ddeln/Documents/repos/urjc-ai/1. first_course/programming/c/excersises/exercises2/A/cmake-build-debug/CMakeFiles/A.dir
-C:/Users/ddeln/Documents/repos/urjc-ai/1. first_course/programming/c/excersises/exercises2/A/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/ddeln/Documents/repos/urjc-ai/1. first_course/programming/c/excersises/exercises2/A/cmake-build-debug/CMakeFiles/rebuild_cache.dir
