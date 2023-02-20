@@ -1,7 +1,11 @@
-#ifndef C_FUNCIONES_H
-#define C_FUNCIONES_H
+//
+// Created by ddeln on 2/18/2023.
+//
 
-#endif //C_FUNCIONES_H
+#ifndef PRACTICA1_FUNCIONES_H
+#define PRACTICA1_FUNCIONES_H
+
+#endif //PRACTICA1_FUNCIONES_H
 
 int menu();
 int triangle(int x);
