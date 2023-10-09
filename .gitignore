@@ -1,5 +1,4 @@
 *.exe
 *.vscode
 *.idea
-*.txt
 *cmake-build-debug

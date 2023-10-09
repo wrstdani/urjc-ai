@@ -1,0 +1,43 @@
+ESPECIFICACIÓN Naturales
+	TIPOS tNatural
+	
+	OPERACIONES
+		(* constructoras generadoras *)
+		CERO -> tNatural
+		SUCESOR : tNatural -> tNatural
+		
+		(* observadoras no selectoras *)
+		Es_Cero : tNatural -> Booleano
+		Es_Par : tNatural -> Booleano
+		Es_Menor_Igual : tNatural x tNatural -> Booleano
+		
+		(* constructoras no generadoras *)
+		PARCIAL PREDECESOR : tNatural -> tNatural
+		SUMA : tNatural x tNatural -> tNatural
+		MULTIPLICACIÓN : tNatural x tNatural -> tNatural
+				
+	VARIABLES
+		n : tNatural
+	ECUACIONES DE DEFINITUD
+		SI Es_Menor_Igual(n, CERO) == FALSE -> DEF(PREDECESOR(n))
+		DEF PREDECESOR(SUCESOR(n))
+		
+	ECUACIONES
+	
+		(* constructoras generadoras *)
+		
+		
+		(* observadoras selectoras *)
+		
+		(* observadoras no selectoras *)
+		Es_Cero(CERO) = TRUE
+		Es_Cero(SUCESOR(n)) = FALSE
+		
+		Es_Menor_Igual(CERO, n) = TRUE
+		Es_Menor_Igual(SUCESOR(n), CERO) = FALSE
+		Es_Menor_Igual(SUCESOR(n), SUCESOR(m)) = Es_Menor_Igual(n, m)
+		
+		(* constructoras no generadoras *)
+		
+		
+FIN ESPECIFICACIÓN

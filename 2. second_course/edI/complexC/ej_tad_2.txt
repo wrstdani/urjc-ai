@@ -1,0 +1,30 @@
+ESPECIFICACIÓN Enteros
+	TIPOS tEntero
+	
+	OPERACIONES
+		(* constructoras generadoras *)
+		CERO -> tEntero
+		SUCESOR : tEntero -> tEntero
+		PREDECESOR : tEntero -> tEntero
+						
+		(* constructoras no generadoras *)
+		SUMAR : tEntero x tEntero -> tEntero
+		RESTAR : tEntero x tEntero -> tEntero
+		
+		
+	VARIABLES
+		b, c : tEntero
+	
+	ECUACIONES ENTRE GENERADORAS
+		SUCESOR(PREDECESOR(b)) = b
+		PREDECESOR(SUCESOR(b)) = b
+		
+	
+	ECUACIONES
+		(* constructoras generadoras *)
+		
+		(* observadoras selectoras *)
+		
+		(* observadoras no selectoras *)
+		
+		(* constructoras no generadoras *)

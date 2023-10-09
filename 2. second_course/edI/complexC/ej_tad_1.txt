@@ -1,0 +1,60 @@
+ESPECIFICACIÓN Complejos
+	TIPOS tComplejo
+	
+	OPERACIONES
+		(* constructoras generadoras *)
+		CrearComplejo : Entero x Entero -> tComplejo
+		
+		(* observadoras selectoras *)
+		ObtenerReal : tComplejo -> Entero
+		ObtenerImaginaria tComplejo -> Entero
+		
+		(* observadoras no selectoras*)
+		CalcularModulo : tComplejo -> Real
+		
+		(* constructoras no generadoras *)
+		Conjugado : tComplejo -> tComplejo
+		Sumar : tComplejo x tComplejo -> tComplejo
+		Restar : tComplejo x tComplejo -> tComplejo
+		Multiplicar : tComplejo x tComplejo -> tComplejo
+		PARCIAL Dividir : tComplejo x tComplejo -> tComplejo // para evitar indeterminaciones: PARCIAL
+		I -> tComplejo
+		
+	VARIABLES
+		re, im : Entero
+		re2, im2 : Entero
+		t : tComplejo
+		
+	ECUACIONES DE DEFINITUD
+		SI ObtenerReal(re2, im2) != 0 O
+			ObtenerImaginaria(re2, im2) != 0 ->
+				DEF(Dividir(CrearComplejo(re, im), 
+					CrearComplejo(re2, im2)))
+	
+	ECUACIONES
+	
+		(* observadoras selectoras *)
+		ObtenerReal(CrearComplejo(re, im)) = 
+			re
+			
+		ObtenerImaginaria(CrearComplejo(re, im)) = 
+			im
+		
+		(* observadoras no selectoras *)
+		CalcularModulo(CrearComplejo(re, im)) = 
+			((re^2) + (im^2))^(1/2)
+		
+		(* constructoras no generadoras *)
+		Sumar(CrearComplejo(re, im), CrearComplejo(re2, im2)) =
+			CrearComplejo(re+re2, im+im2)
+			
+		Restar(CrearComplejo(re, im), CrearComplejo(re2, im2)) =
+			CrearComplejo(re-re2, im-im2)
+			
+		I = CrearComplejo(0, 1)
+		
+		Dividir(CrearComplejo(re, im), CrearComplejo(re2, im2)) =
+			CrearComplejo(((re*re2)+(im*im2)/(re2^2+im2^2)), 
+				((re2*im) - (re*im2))/(re2^2 + im2^2))
+
+FIN ESPECIFICACIÓN
