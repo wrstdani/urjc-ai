@@ -1,12 +1,15 @@
-def greedydorarep(pedidos):
-    waittime = 0
-    nextelement = 0
+def greedyrep(pedidos):
+    ltiempo = []
+    tiempo = 0
     n = len(pedidos)
+    nextelement = 0
     while nextelement < n:
         pedido = pedidos[nextelement]
-        waittime += pedido[0]
+        tiempo += pedido[0]
+        ltiempo.append(tiempo)
         nextelement += 1
-    return waittime
+    return sum(ltiempo)
+
 
 n = int(input())
 pedidos = []
@@ -14,4 +17,4 @@ for i in range(n):
     c, t = map(int, input().strip().split())
     pedidos.append((t, c))
 pedidos.sort()
-print(greedydorarep(pedidos))
+print(greedyrep(pedidos))
