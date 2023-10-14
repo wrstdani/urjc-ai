@@ -2,18 +2,18 @@ def isfeasible(asignaturas, nextelement, timeleft):
     return timeleft - asignaturas[nextelement][0] >= 0
 
 
-def greedystudy(asignaturas, m):
-    superadas = 0
+def greedystudy(asignaturas, maxtime):
     n = len(asignaturas)
-    timeleft = m
+    timeleft = maxtime
     nextelement = 0
     while nextelement < n:
         asignatura = asignaturas[nextelement]
-        if isfeasible(asignaturas, nextelement, timeleft):
+        if not isfeasible(asignaturas, nextelement, timeleft):
+            return False
+        else: 
             timeleft -= asignatura[0]
-            superadas += 1
         nextelement += 1
-    return superadas
+    return True
 
 
 n, m = map(int, input().strip().split())
@@ -24,4 +24,7 @@ for i in range(n):
 asignaturas.sort()
 for i in range(m):
     e = int(input())
-    print(greedystudy(asignaturas, e))
+    if greedystudy(asignaturas, e):
+        print("APROBADO")
+    else:
+        print("SUSPENSO")
