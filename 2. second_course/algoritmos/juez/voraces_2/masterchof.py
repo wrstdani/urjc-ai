@@ -1,30 +1,28 @@
-def isfeasible(food, nextelement, avspace):
-    return avspace - food[nextelement][1] >= 0
+def isfeasible(alimentos, nextelement, spaceav):
+    return spaceav - alimentos[nextelement][1] >= 0
 
-
-def greedychef(food, c):
-    n = len(food)
-    avspace = c
+def greedychef(alimentos, maxspace):
+    n = len(alimentos)
+    spaceav = maxspace
     nextelement = 0
-    benefit = 0
     issol = False
+    beneficio = 0
     while not issol and nextelement < n:
-        alimento = food[nextelement]
-        if isfeasible(food, nextelement, avspace):
-            avspace -= alimento[1]
-            benefit += alimento[2]
+        alimento = alimentos[nextelement]
+        if isfeasible(alimentos, nextelement, spaceav):
+            spaceav -= alimento[1]
+            beneficio += alimento[2]
         else:
-            valor = avspace / alimento[1]
-            benefit += valor * alimento[2]
+            valor = spaceav / alimento[1]
+            beneficio += valor * alimento[2]
             issol = True
         nextelement += 1
-    return benefit
+    return beneficio
 
-
-n, c = map(int, input().strip().split())    # n: n alimentos // c: tamaño cesta
-food = []
+n, c = map(int, input().strip().split())
+alimentos = []
 for i in range(n):
     a, t, v = map(str, input().strip().split())
-    food.append((int(t)/int(v), int(t), a, i))
-food.sort()
-print("%.6f" % greedychef(food, c))
+    alimentos.append((int(v)/int(t), int(t), int(v), a))
+alimentos.sort(reverse=True)
+print("%.6f" % greedychef(alimentos, c))

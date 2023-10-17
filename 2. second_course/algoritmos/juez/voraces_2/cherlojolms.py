@@ -1,36 +1,34 @@
-def isfeasible(casos, avmoney, nextelement):
-    return avmoney - casos[nextelement][1] >= 0
+def isfeasible(casos, nextelement, moneyav):
+    return moneyav - casos[nextelement][1] >= 0
 
 
 def greedycherlo(casos, maxmoney):
-    beneficio = 0
-    resueltos = []
     n = len(casos)
-    avmoney = maxmoney
+    beneficio = 0
+    lcasos = []
     nextelement = 0
     issol = False
+    moneyav = maxmoney
     while not issol and nextelement < n:
         caso = casos[nextelement]
-        if isfeasible(casos, avmoney, nextelement):
-            resueltos.append(caso[3])
+        if isfeasible(casos, nextelement, moneyav):
+            moneyav -= caso[1]
             beneficio += caso[2]
-            avmoney -= caso[1]
+            lcasos.append(caso[3])
         else:
-            valor = avmoney / caso[1]
+            valor = moneyav / caso[1]
             beneficio += valor * caso[2]
-            resueltos.append(caso[3])
+            lcasos.append(caso[3])
             issol = True
         nextelement += 1
-    resueltos = [str(num) for num in sorted(resueltos)]
-    return resueltos, beneficio
-
+    return sorted(lcasos), round(beneficio)
 
 n, m = map(int, input().strip().split())
 casos = []
 for i in range(n):
     p, d = map(int, input().strip().split())
-    casos.append((p/d, p, d, i))
-casos.sort()
-resueltos, btotal = greedycherlo(casos, m)
-print(resueltos)
-print(round(btotal))
+    casos.append((d/p, p, d, i))
+casos.sort(reverse=True)
+lcasos, dinero = greedycherlo(casos, m)
+lcasos = [str(caso) for caso in lcasos]
+print(" ".join(lcasos), "\n", dinero)

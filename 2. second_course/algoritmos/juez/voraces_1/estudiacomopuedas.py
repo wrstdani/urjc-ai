@@ -1,19 +1,14 @@
-def isfeasible(asignaturas, nextelement, timeleft):
-    return timeleft - asignaturas[nextelement][0] >= 0
-
-
 def greedystudy(asignaturas, maxtime):
     n = len(asignaturas)
-    timeleft = maxtime
     nextelement = 0
+    tiempo = 0
+    ltiempos = []
     while nextelement < n:
-        asignatura = asignaturas[nextelement]
-        if not isfeasible(asignaturas, nextelement, timeleft):
-            return False
-        else: 
-            timeleft -= asignatura[0]
+        tasignatura = asignaturas[nextelement][0]
+        tiempo += tasignatura
+        ltiempos.append(tiempo)
         nextelement += 1
-    return True
+    return maxtime >= sum(ltiempos)
 
 
 n, m = map(int, input().strip().split())
